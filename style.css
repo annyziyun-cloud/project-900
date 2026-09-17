@@ -108,10 +108,10 @@ body, html {
 }
 
 .fairy-sprite {
-  width: 160px;
+  width: 300px;
   height: auto;
   animation: float 2.5s ease-in-out infinite;
-  margin-bottom: -15px;
+  margin-bottom: 20px;
   filter: drop-shadow(0 4px 10px rgba(255, 192, 203, 0.6));
 }
 
