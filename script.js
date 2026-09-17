@@ -72,7 +72,7 @@ nextBtn.addEventListener('click', () => {
   setTimeout(() => {
     prologueScreen.style.display = 'none';
     
-    mapScreen.style.display = 'block'; 
+    mapScreen.style.display = 'flex'; 
     mapScreen.classList.remove('hidden');
     mapScreen.classList.add('active');
     
@@ -134,7 +134,7 @@ function completeLevel(level) {
   setTimeout(() => {
     level1Screen.style.display = 'none';
     
-    mapScreen.style.display = 'block';
+    mapScreen.style.display = 'flex';
     mapScreen.classList.remove('hidden');
     mapScreen.classList.add('active');
     
