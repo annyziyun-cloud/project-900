@@ -1,1 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project 900</title>
+  <!-- 引入像素風字體 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+  <!-- 背景影片 (支援 Canva 匯出的 MP4) -->
+  <video autoplay muted loop id="bg-video">
+    <source src="assets/bg.mp4" type="video/mp4">
+  </video>
+
+  <!-- 全域音效 -->
+  <audio id="bgm" src="assets/bgm.mp3" loop></audio>
+
+  <!-- 1. 開場選單畫面 (Title Screen) -->
+  <div id="title-screen" class="screen active">
+    <h1 class="game-title">Project 900</h1>
+    <div class="menu-container">
+      <button class="pixel-btn" id="start-btn">Start Game</button>
+      <button class="pixel-btn" id="settings-btn">Settings</button>
+      <button class="pixel-btn" id="quit-btn">Quit Game</button>
+    </div>
+  </div>
+
+  <!-- 2. 小精靈對話開場畫面 (Prologue Screen) -->
+  <div id="prologue-screen" class="screen hidden">
+    <div class="dialog-wrapper">
+      <img src="assets/fairy.png" alt="小精靈小芸芸" class="fairy-sprite">
+      <div class="dialog-box">
+        <h3 class="dialog-name">小精靈 小芸芸</h3>
+        <p id="dialog-text"></p>
+        <button class="pixel-btn next-btn hidden" id="prologue-next-btn">接受委託 ▶</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
