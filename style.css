@@ -251,16 +251,16 @@ body, html {
   justify-content: center;
   width: 90%;
   max-width: 800px;
-  gap: 40px; /* 精靈與對話框的水平間距 */
+  gap: 20px; /* 精靈與對話框的水平間距 */
 }
 
 .map-fairy-sprite {
-  width: 260px; /* 精靈大小 */
+  width: 300px; /* 精靈大小 */
   height: auto;
   animation: float 2.5s ease-in-out infinite;
   filter: drop-shadow(0 4px 10px rgba(255, 192, 203, 0.6));
   flex-shrink: 0; /* 防止螢幕縮小時精靈被擠壓變形 */
-  margin-left: -60px;
+  margin-left: -150px;
 }
 
 .map-dialog-box {
