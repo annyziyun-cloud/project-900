@@ -255,7 +255,7 @@ body, html {
 }
 
 .map-fairy-sprite {
-  width: 140px; /* 精靈大小 */
+  width: 350px; /* 精靈大小 */
   height: auto;
   animation: float 2.5s ease-in-out infinite;
   filter: drop-shadow(0 4px 10px rgba(255, 192, 203, 0.6));
