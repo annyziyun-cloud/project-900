@@ -108,7 +108,7 @@ body, html {
 }
 
 .fairy-sprite {
-  width: 700px;
+  width: 300px;
   height: auto;
   animation: float 2.5s ease-in-out infinite;
   margin-bottom: 20px;
