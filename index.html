@@ -12,10 +12,10 @@
 </head>
 <body>
 
-  <!-- 背景影片 (支援 Canva 匯出的 MP4) -->
-  <video autoplay muted loop id="bg-video">
-    <source src="assets/bg.mp4" type="video/mp4">
-  </video>
+  <!-- 加入 playsinline -->
+<video autoplay muted loop playsinline id="bg-video">
+  <source src="assets/bg.mp4" type="video/mp4">
+</video>
 
   <!-- 全域音效 -->
   <audio id="bgm" src="assets/bgm.mp3" loop></audio>
@@ -33,7 +33,7 @@
   <!-- 2. 小精靈對話開場畫面 (Prologue Screen) -->
   <div id="prologue-screen" class="screen hidden">
     <div class="dialog-wrapper">
-      <img src="assets/fairy.png" alt="小精靈小芸芸" class="fairy-sprite">
+      <img src="assets/fairy.png" alt="小精靈芸芸" class="fairy-sprite">
       <div class="dialog-box">
         <h3 class="dialog-name">小精靈芸芸</h3>
         <p id="dialog-text"></p>
