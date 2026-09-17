@@ -69,13 +69,18 @@
     </div>
   </div>
 
-  <!-- 4. 第一關：選擇題畫面 (Level 1 Screen) - 先建置外框，細節之後補 -->
+  <!-- 4. 第一關：選擇題畫面 (Level 1 Screen) -->
   <div id="level-1-screen" class="screen hidden">
-    <div class="quiz-container">
-      <h2 class="level-title">第一關：記憶考驗</h2>
-      <p id="question-text">題目載入中...</p>
-      <div class="options-container" id="options-container">
-        <!-- 選項按鈕會透過 JS 動態生成 -->
+    <div class="quiz-layout">
+      <!-- 左側：問題圖片 -->
+      <div class="quiz-left">
+        <!-- 這裡的 src 會透過 JS 動態替換成題目的圖片 -->
+        <img id="question-image" src="" alt="第一關問題">
+      </div>
+      
+      <!-- 右側：選項按鈕區 -->
+      <div class="quiz-right" id="options-container">
+        <!-- JS 會在這裡動態生成 3 個按鈕 -->
       </div>
     </div>
   </div>
