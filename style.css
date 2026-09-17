@@ -12,15 +12,14 @@ body, html {
   background-color: #000;
 }
 
-/* 背景影片自適應全螢幕 */
-#bg-video {
+/* 將原本的 #bg-video 替換為以下內容 */
+#bg-image {
   position: fixed;
   top: 50%;
   left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover; /* 關鍵：確保不同螢幕比例下圖片填滿且不變形 */
   transform: translate(-50%, -50%);
   z-index: -1;
   filter: brightness(0.95);
