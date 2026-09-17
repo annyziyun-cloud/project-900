@@ -154,29 +154,38 @@ body, html {
 /* =========================================
    地圖頁面 (Map Screen) 樣式
 ========================================= */
-.map-container {
-  position: relative;
-  width: 80%;
-  max-width: 900px;
-  height: 60vh;
-  /* 如果你有畫一張地圖底圖，可以加在這裡：
-  background-image: url('assets/map-bg.png'); 
-  background-size: contain; 
-  background-repeat: no-repeat; */
-  background-color: rgba(255, 255, 255, 0.4);
-  border-radius: 20px;
-  border: 4px dashed #faa3b3;
-  margin-bottom: 20px;
+/* 確保地圖畫面內的元素垂直置中並保持間距 */
+#map-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px; /* 地圖與對話框之間的距離 */
 }
 
-/* 關卡節點按鈕 */
+/* 裝載地圖背景的容器 */
+.map-container {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  height: 55vh;
+  /* 載入你提供的地圖背景 */
+  background-image: url('assets/map.png'); 
+  background-size: contain; /* 確保地圖比例完整顯示且不被裁切 */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none; /* 移除之前的虛線邊框 */
+}
+
+/* 關卡節點按鈕 (大小與位置可依據你的 map.jpg 地圖路線微調) */
 .level-node {
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   font-family: inherit;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
   cursor: pointer;
   border: 4px solid #fff;
@@ -184,22 +193,27 @@ body, html {
   z-index: 10;
 }
 
-/* 暫時先用絕對定位把節點散佈在地圖上 (你可以根據喜好調整 top / left 數值) */
-#node-1 { top: 70%; left: 15%; }
-#node-2 { top: 40%; left: 40%; }
-#node-3 { top: 60%; left: 70%; }
-#node-treasure { top: 15%; left: 85%; width: 70px; height: 70px; font-size: 2rem; }
-
-/* 狀態 1：鎖定中 */
-.level-node.locked {
-  background-color: #ccc;
-  color: #888;
-  border-color: #999;
-  cursor: not-allowed;
-  pointer-events: none; /* 禁止點擊 */
+/* 節點位置 (請根據 map.jpg 上的圈圈位置修改 top 與 left 趴數) */
+#node-1 { top: 72%; left: 32%; }
+#node-2 { top: 62%; left: 58%; }
+#node-3 { top: 38%; left: 75%; }
+#node-treasure { 
+  top: 15%; 
+  left: 55%; 
+  width: 60px; 
+  height: 60px; 
+  font-size: 1.8rem; 
 }
 
-/* 狀態 2：可挑戰 (開放中) */
+/* 節點狀態樣式 */
+.level-node.locked {
+  background-color: #888;
+  color: #ddd;
+  border-color: #555;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 .level-node.active {
   background-color: #ffb6c1;
   color: #fff;
@@ -213,44 +227,53 @@ body, html {
   100% { transform: scale(1); }
 }
 
-/* 狀態 3：已完成 (透過 JS 加入此 class) */
 .level-node.completed {
-  background-color: #ffd700; /* 金色 */
-  color: transparent; /* 隱藏原本的數字 */
+  background-color: #ffd700;
+  color: transparent;
   box-shadow: 0 4px 0 #daa520;
 }
 .level-node.completed::after {
-  content: '★'; /* 用星星蓋住數字 */
+  content: '★';
   color: #fff;
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 }
 
-/* 迷你小精靈對話框 (地圖專用) */
+/* =========================================
+   地圖專屬：迷你小精靈與對話框排版
+========================================= */
 .map-dialog-wrapper {
   display: flex;
-  align-items: flex-end;
-  width: 80%;
+  flex-direction: row; /* 讓精靈與對話框橫向排列 */
+  align-items: flex-end; /* 讓精靈與對話框底部切齊 */
+  justify-content: center;
+  width: 90%;
   max-width: 800px;
+  gap: 20px; /* 精靈與對話框的水平間距 */
 }
+
 .map-fairy-sprite {
-  width: 150px;
+  width: 140px; /* 精靈大小 */
+  height: auto;
   animation: float 2.5s ease-in-out infinite;
-  margin-right: 15px;
-  filter: drop-shadow(0 4px 5px rgba(255, 192, 203, 0.6));
+  filter: drop-shadow(0 4px 10px rgba(255, 192, 203, 0.6));
+  flex-shrink: 0; /* 防止螢幕縮小時精靈被擠壓變形 */
 }
+
 .map-dialog-box {
-  flex-grow: 1;
-  background: rgba(255, 255, 255, 0.9);
+  flex-grow: 1; /* 讓對話框填滿剩餘的寬度 */
+  background: rgba(255, 255, 255, 0.95);
   border: 4px solid #faa3b3;
-  border-radius: 16px 16px 16px 0; /* 左下角做對話泡泡尖角視覺 */
-  padding: 15px 25px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  border-radius: 16px 16px 16px 0; /* 左下角呈現對話泡泡的尖角 */
+  padding: 20px 25px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  position: relative;
 }
+
 #map-dialog-text {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #4a4a4a;
-  line-height: 1.6;
+  line-height: 1.8;
 }
