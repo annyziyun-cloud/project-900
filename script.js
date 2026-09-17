@@ -115,6 +115,8 @@ function startLevel(level) {
       level1Screen.style.display = 'flex';
       level1Screen.classList.remove('hidden');
       level1Screen.classList.add('active');
+      currentQuestionIndex = 0;
+      loadLevel1Quiz();
       // 這裡之後準備執行：loadLevel1Quiz();
     } else if (level === 2) {
       // 顯示第二關邏輯...
@@ -145,4 +147,71 @@ function completeLevel(level) {
 // 點擊最終寶藏
 function claimTreasure() {
   alert("🎁 恭喜！即將開啟 900 天祕寶！");
+}
+
+// === 6. 第一關：選擇題題庫與邏輯 ===
+
+// 題庫資料：請將 image 替換成你做好的圖片檔名
+const level1QuizData = [
+  {
+    image: "assets/q1.png", 
+    options: ["選項 A 的文字", "選項 B 的文字", "選項 C 的文字"],
+    correctAnswerIndex: 0 // 正確答案是第幾個選項 (0 代表 A, 1 代表 B, 2 代表 C)
+  },
+  {
+    image: "assets/q2.png",
+    options: ["選項 A 的文字", "選項 B 的文字", "選項 C 的文字"],
+    correctAnswerIndex: 1 
+  },
+  {
+    image: "assets/q3.png",
+    options: ["選項 A 的文字", "選項 B 的文字", "選項 C 的文字"],
+    correctAnswerIndex: 2 
+  }
+];
+
+let currentQuestionIndex = 0; // 記錄目前答到第幾題
+
+// 載入題目
+function loadLevel1Quiz() {
+  const currentQuiz = level1QuizData[currentQuestionIndex];
+  
+  // 更新左側圖片
+  document.getElementById('question-image').src = currentQuiz.image;
+  
+  // 清空並重新生成右側選項按鈕
+  const optionsContainer = document.getElementById('options-container');
+  optionsContainer.innerHTML = ''; 
+  
+  currentQuiz.options.forEach((optionText, index) => {
+    const btn = document.createElement('button');
+    // 套用既有的 pixel-btn 與新增的 option-btn 樣式
+    btn.className = 'pixel-btn option-btn'; 
+    btn.textContent = optionText;
+    
+    // 綁定點擊事件來對答案
+    btn.onclick = () => checkAnswer(index, currentQuiz.correctAnswerIndex);
+    
+    optionsContainer.appendChild(btn);
+  });
+}
+
+// 檢查答案
+function checkAnswer(selectedIndex, correctIndex) {
+  if (selectedIndex === correctIndex) {
+    // 答對了
+    alert("✨ 答對了！");
+    currentQuestionIndex++; // 進入下一題
+    
+    if (currentQuestionIndex < level1QuizData.length) {
+      loadLevel1Quiz(); // 載入下一題
+    } else {
+      // 3 題都答對了，完成第一關
+      alert("🎉 恭喜通過記憶考驗！老婆的愛心線索解鎖了一部分！");
+      completeLevel(1); // 呼叫之前寫好的函數，回到地圖
+    }
+  } else {
+    // 答錯了
+    alert("❌ 哎呀，記憶有點模糊囉？再試一次吧！");
+  }
 }
