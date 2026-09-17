@@ -282,25 +282,33 @@ body, html {
 /* =========================================
    第一關：選擇題畫面排版
 ========================================= */
+
+/* 第一關：前置說明置中排版 */
+.intro-box {
+  width: 80%;
+  max-width: 700px;
+  padding-bottom: 70px; /* 留出空間給右下角的開始按鈕 */
+}
+
 .quiz-layout {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   width: 90%;
-  max-width: 900px;
-  gap: 50px;
+  max-width: 1100px;
+  gap: 60px;
 }
 
 .quiz-left {
-  flex: 1;
+  flex: 1.2;
   display: flex;
   justify-content: center;
 }
 
 #question-image {
   width: 100%;
-  max-width: 450px; /* 限制問題圖片的最大寬度 */
+  max-width: 550px; /* 限制問題圖片的最大寬度 */
   height: auto;
   filter: drop-shadow(0 8px 16px rgba(0,0,0,0.2));
   border-radius: 8px; /* 如果你的紙張圖片邊緣不是透明的，可以加上微圓角 */
