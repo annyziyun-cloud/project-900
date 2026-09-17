@@ -9,7 +9,7 @@ const nextBtn = document.getElementById('prologue-next-btn');
 const bgm = document.getElementById('bgm');
 
 // 故事台詞
-const prologueStory = "呼哇……✨ 勇者大人，你終於來到這裡啦！看你的表情……哼哼，你一定也是為了傳說中『全世界最美麗的老婆大人』所留下的 900 天祕寶而來的吧？接下來就由小精靈我帶領你，一起喚醒那些被封存的時光碎片吧！";
+const prologueStory = "昂……✨ 勇者大人，你終於來到這裡啦！看你的表情……哼哼，你一定也是為了傳說中『美麗的老婆大人』留下的 900 天祕寶而來的吧？接下來就由小精靈芸芸我帶領你，一起找尋那些被封存的時光碎片吧！";
 
 // 點擊 Start Game
 startBtn.addEventListener('click', () => {
