@@ -278,3 +278,45 @@ body, html {
   color: #4a4a4a;
   line-height: 1.8;
 }
+
+/* =========================================
+   第一關：選擇題畫面排版
+========================================= */
+.quiz-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 900px;
+  gap: 50px;
+}
+
+.quiz-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+#question-image {
+  width: 100%;
+  max-width: 450px; /* 限制問題圖片的最大寬度 */
+  height: auto;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.2));
+  border-radius: 8px; /* 如果你的紙張圖片邊緣不是透明的，可以加上微圓角 */
+}
+
+.quiz-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 選項按鈕樣式：繼承像素按鈕但加寬 */
+.option-btn {
+  width: 100%;
+  font-size: 1.1rem;
+  padding: 16px 24px;
+  text-align: left; /* 讓選項文字靠左對齊 */
+}
