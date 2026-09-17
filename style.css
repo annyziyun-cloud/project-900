@@ -12,21 +12,19 @@ body, html {
   background-color: #000;
 }
 
-/* 將原本的 #bg-video 替換為以下內容 */
-#bg-image {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover; /* 關鍵：確保不同螢幕比例下圖片填滿且不變形 */
-  transform: translate(-50%, -50%);
-  z-index: -1;
-  filter: brightness(0.95);
+#bg-video {
+  position: fixed; /* 固定在螢幕上 */
+  top: 0;
+  left: 0;
+  width: 100vw; /* 寬度 100% 視窗 */
+  height: 100vh; /* 高度 100% 視窗 */
+  object-fit: cover; /* 保持比例填滿，多餘的部分會被裁切 */
+  z-index: -1; /* 設為負數，確保它在所有畫面的最下面 */
 }
 
-/* 場景切換控制 */
+/* 確保覆蓋在上面的選單背景是透明的 */
 .screen {
+  background-color: transparent; /* 如果原本是黑底，改成透明 */
   position: absolute;
   top: 0;
   left: 0;
