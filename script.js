@@ -12,6 +12,10 @@ const dialogText = document.getElementById('dialog-text');
 const nextBtn = document.getElementById('prologue-next-btn');
 const bgm = document.getElementById('bgm');
 
+const level1Intro = document.getElementById('level-1-intro');
+const quizContent = document.getElementById('quiz-content');
+const startQuizBtn = document.getElementById('start-quiz-btn');
+
 // === 2. 遊戲進度狀態管理 ===
 let playerProgress = {
   level1: false,
@@ -123,6 +127,12 @@ function startLevel(level) {
     }
   }, 500);
 }
+
+startQuizBtn.addEventListener('click', () => {
+  level1Intro.style.display = 'none';
+  quizContent.style.display = 'flex';
+  loadLevel1Quiz(); // 開始載入第一題
+});
 
 // 闖關成功後，呼叫此函數回到地圖
 function completeLevel(level) {
