@@ -71,16 +71,24 @@
 
   <!-- 4. 第一關：選擇題畫面 (Level 1 Screen) -->
   <div id="level-1-screen" class="screen hidden">
-    <div class="quiz-layout">
+    
+    <!-- 新增：關卡前置說明 -->
+    <div id="level-1-intro" class="dialog-box intro-box">
+      <h3 class="dialog-name">小精靈芸芸</h3>
+      <p id="intro-text">準備好了嗎？接下來會有三個小問題，請仔細回想照片裡的點點滴滴，選出唯一正確的答案！<br><br>全部答對才能解鎖下一關的線索唷！</p>
+      <button class="pixel-btn next-btn" id="start-quiz-btn">開始挑戰 ▶</button>
+    </div>
+
+    <!-- 原本的選擇題版面 (預設先隱藏，加上 id 以便 JS 控制) -->
+    <div id="quiz-content" class="quiz-layout" style="display: none;">
       <!-- 左側：問題圖片 -->
       <div class="quiz-left">
-        <!-- 這裡的 src 會透過 JS 動態替換成題目的圖片 -->
         <img id="question-image" src="" alt="第一關問題">
       </div>
       
       <!-- 右側：選項按鈕區 -->
       <div class="quiz-right" id="options-container">
-        <!-- JS 會在這裡動態生成 3 個按鈕 -->
+        <!-- JS 動態生成按鈕 -->
       </div>
     </div>
   </div>
