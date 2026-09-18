@@ -420,3 +420,90 @@ body, html {
   margin-top: 20px;
   font-size: 1.3rem;
 }
+
+/* =========================================
+   第三關：時光保險箱排版
+========================================= */
+.lock-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.chest-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#treasure-chest {
+  width: 280px;
+  height: auto;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.25));
+  transition: transform 0.3s ease;
+}
+
+/* 提示按鈕浮動在寶箱右下方 */
+.hint-btn {
+  position: absolute;
+  bottom: 10px;
+  right: -30px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 4px solid #faa3b3;
+  border-radius: 12px;
+  padding: 8px 14px;
+  font-family: inherit;
+  color: #d87093;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #f8c3cd;
+  transition: all 0.1s;
+}
+
+.hint-btn:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 #f8c3cd;
+}
+
+/* 密碼輸入框區域 */
+.password-container {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+/* 粉色像素風單字元輸入框 */
+.pixel-input {
+  width: 65px;
+  height: 80px;
+  font-size: 2.5rem;
+  text-align: center;
+  font-family: inherit;
+  background: rgba(255, 255, 255, 0.85);
+  border: 4px solid #faa3b3;
+  border-radius: 12px;
+  color: #d87093;
+  box-shadow: inset 0 4px 6px rgba(0,0,0,0.05), 0 6px 0 #f8c3cd;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.pixel-input:focus {
+  border-color: #ff69b4;
+  background: #fff;
+  transform: translateY(-2px);
+}
+
+/* 密碼錯誤時的震動動畫 */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-12px); }
+  50% { transform: translateX(12px); }
+  75% { transform: translateX(-12px); }
+}
+
+.shake-animation {
+  animation: shake 0.4s ease;
+}
