@@ -53,12 +53,12 @@ startBtn.addEventListener('click', () => {
 
 // Settings 點擊反饋
 settingsBtn.addEventListener('click', () => {
-  alert("⚙️ 設定：BGM 音量已自動調至最深情狀態，無法減弱！");
+  alert("⚙️ 沒什麼好調整的，趕緊開始吧!");
 });
 
 // Quit Game 趣味彩蛋
 quitBtn.addEventListener('click', () => {
-  alert("❌ 警告：老婆大人設定了不可退出！請乖乖通關領取祕寶～");
+  alert("❌ 警告：老婆大人說了不可退出！沒有後悔的選項唷～");
 });
 
 // === 4. 打字機特效邏輯 ===
