@@ -507,3 +507,71 @@ body, html {
 .shake-animation {
   animation: shake 0.4s ease;
 }
+
+/* =========================================
+   設定彈窗 (Settings Modal) 樣式
+========================================= */
+.modal {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* 半透明黑色背景 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100; /* 確保在畫面的最上方 */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.95);
+  border: 4px solid #faa3b3;
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.volume-control {
+  margin: 30px 0;
+  font-size: 1.2rem;
+  color: #d87093;
+}
+
+/* 自訂滑桿外觀 */
+#bgm-volume {
+  vertical-align: middle;
+  margin-left: 10px;
+  cursor: pointer;
+  accent-color: #ff69b4; /* 粉紅色滑桿 */
+}
+
+/* =========================================
+   最終寶藏畫面 (Treasure Screen) 樣式
+========================================= */
+.video-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 30px;
+  border-radius: 16px;
+  border: 4px dashed #faa3b3;
+}
+
+#treasure-video {
+  width: 100%;
+  max-height: 60vh; /* 避免影片太高超出畫面 */
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  background-color: #000;
+  border: 4px solid #fff;
+}
