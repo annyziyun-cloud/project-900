@@ -140,15 +140,22 @@ startQuizBtn.addEventListener('click', () => {
 
 // 闖關成功後，呼叫此函數回到地圖
 function completeLevel(level) {
-  if (level === 1) playerProgress.level1 = true;
-  if (level === 2) playerProgress.level2 = true;
-  if (level === 3) playerProgress.level3 = true;
-  
-  level1Screen.classList.remove('active');
-  level1Screen.classList.add('hidden');
+  if (level === 1) {
+    playerProgress.level1 = true;
+    level1Screen.classList.remove('active');
+    level1Screen.classList.add('hidden');
+  } else if (level === 2) {
+    playerProgress.level2 = true;
+    level2Screen.classList.remove('active');
+    level2Screen.classList.add('hidden');
+  } else if (level === 3) {
+    playerProgress.level3 = true;
+    // 預留給第三關的隱藏邏輯
+  }
   
   setTimeout(() => {
-    level1Screen.style.display = 'none';
+    if (level === 1) level1Screen.style.display = 'none';
+    if (level === 2) level2Screen.style.display = 'none';
     
     mapScreen.style.display = 'flex';
     mapScreen.classList.remove('hidden');
