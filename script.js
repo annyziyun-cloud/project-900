@@ -128,7 +128,13 @@ function startLevel(level) {
     level2Screen.classList.add('active');
     level2Intro.style.display = 'block';
     level2Content.style.display = 'none';
-  }
+  } else if (level === 3) {
+    level3Screen.style.display = 'flex';
+    level3Screen.classList.remove('hidden');
+    level3Screen.classList.add('active');
+    
+    digitInputs.forEach(input => input.value = '');
+    setTimeout(() => digitInputs[0].focus(), 100);
   }, 500);
 }
 
@@ -335,5 +341,62 @@ checkLevel2Btn.addEventListener('click', () => {
     completeLevel(2); // 回到地圖
   } else {
     alert("❌ 順序好像有點不對？再回憶一下經歷的先後順序吧！");
+  }
+});
+
+// === 8. 第三關：時光保險箱邏輯 ===
+const level3Screen = document.getElementById('level-3-screen');
+const hintBtn = document.getElementById('hint-btn');
+const unlockBtn = document.getElementById('unlock-btn');
+const digitInputs = document.querySelectorAll('.digit-input');
+
+// 提示按鈕邏輯
+hintBtn.addEventListener('click', () => {
+  alert("🧚‍♀️ 小精靈芸芸提示：密碼是我們故事開始的那一天唷！");
+});
+
+// 輸入框自動跳格機制
+digitInputs.forEach((input, index) => {
+  input.addEventListener('input', (e) => {
+    // 確保只能輸入數字
+    e.target.value = e.target.value.replace(/[^0-9]/g, '');
+    
+    // 輸入成功後，自動跳到下一格
+    if (e.target.value !== '' && index < digitInputs.length - 1) {
+      digitInputs[index + 1].focus();
+    }
+  });
+  
+  // 處理按 Backspace 刪除時退回上一格
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Backspace' && e.target.value === '' && index > 0) {
+      digitInputs[index - 1].focus();
+    }
+  });
+});
+
+// 解鎖驗證邏輯
+unlockBtn.addEventListener('click', () => {
+  // 將 4 個框框的數字拼起來
+  let enteredCode = '';
+  digitInputs.forEach(input => enteredCode += input.value);
+
+  // 檢查密碼是否為 0404
+  if (enteredCode === '0404') {
+    alert("✨ 咔嚓！密碼正確，保險箱解鎖了！");
+    // 此處呼叫 completeLevel(3) 回到地圖，或直接進入你設計的最終寶藏畫面
+    completeLevel(3); 
+  } else {
+    // 密碼錯誤處理
+    alert("❌ 密碼好像不對喔？再想一下！");
+    const chest = document.getElementById('treasure-chest');
+    
+    // 觸發震動動畫
+    chest.classList.add('shake-animation');
+    setTimeout(() => chest.classList.remove('shake-animation'), 400);
+    
+    // 清空密碼框並重新聚焦
+    digitInputs.forEach(input => input.value = '');
+    digitInputs[0].focus();
   }
 });
