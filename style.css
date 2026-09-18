@@ -307,7 +307,7 @@ body, html {
 }
 
 #question-image {
-  width: 100%;
+  width: 300%;
   max-width: 1200px; /* 限制問題圖片的最大寬度 */
   height: auto;
   filter: drop-shadow(0 8px 16px rgba(0,0,0,0.2));
