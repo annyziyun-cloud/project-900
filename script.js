@@ -238,7 +238,7 @@ const startLevel2Btn = document.getElementById('start-level-2-btn');
 const checkLevel2Btn = document.getElementById('check-level-2-btn');
 
 // 設定正確的時間線順序 (請根據你的真實故事修改這四個 data-id 的順序)
-const correctTimelineOrder = ['item-hbd', 'item-hair', 'item-disney', 'item-japan'];
+const correctTimelineOrder = ['item-hair', 'item-hk', 'item-army', 'item-japan'];
 
 // 點擊開始排列
 startLevel2Btn.addEventListener('click', () => {
