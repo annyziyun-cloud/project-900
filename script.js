@@ -17,7 +17,6 @@ const quizContent = document.getElementById('quiz-content');
 const startQuizBtn = document.getElementById('start-quiz-btn');
 
 const treasureScreen = document.getElementById('treasure-screen');
-const treasureVideo = document.getElementById('treasure-video');
 const backToMapBtn = document.getElementById('back-to-map-btn');
 
 // === 2. 遊戲進度狀態管理 ===
@@ -187,27 +186,16 @@ function claimTreasure() {
   setTimeout(() => {
     mapScreen.style.display = 'none';
     
-    // 顯示影片畫面
+    // 顯示最終寶藏畫面
     treasureScreen.style.display = 'flex';
     treasureScreen.classList.remove('hidden');
     treasureScreen.classList.add('active');
     
-    // 背景音樂音量暫時調小，避免蓋過影片聲音
-    bgm.volume = 0.2; 
-    
-    // 自動開始播放影片
-    treasureVideo.play().catch(() => console.log("需手動點擊播放"));
   }, 500);
 }
 
-// 影片看完了，返回地圖
+// 點擊返回地圖
 backToMapBtn.addEventListener('click', () => {
-  // 暫停影片
-  treasureVideo.pause();
-  
-  // 恢復背景音樂音量（讀取滑桿設定的值）
-  bgm.volume = bgmVolumeSlider.value;
-  
   treasureScreen.classList.remove('active');
   treasureScreen.classList.add('hidden');
   
