@@ -119,22 +119,23 @@ function startLevel(level) {
       level1Screen.style.display = 'flex';
       level1Screen.classList.remove('hidden');
       level1Screen.classList.add('active');
-      currentQuestionIndex = 0;
-      loadLevel1Quiz();
-      // 這裡之後準備執行：loadLevel1Quiz();
+      document.getElementById('level-1-intro').style.display = 'block';
+      document.getElementById('quiz-content').style.display = 'none';
     } else if (level === 2) {
       level2Screen.style.display = 'flex';
-    level2Screen.classList.remove('hidden');
-    level2Screen.classList.add('active');
-    level2Intro.style.display = 'block';
-    level2Content.style.display = 'none';
-  } else if (level === 3) {
-    level3Screen.style.display = 'flex';
-    level3Screen.classList.remove('hidden');
-    level3Screen.classList.add('active');
-    
-    digitInputs.forEach(input => input.value = '');
-    setTimeout(() => digitInputs[0].focus(), 100);
+      level2Screen.classList.remove('hidden');
+      level2Screen.classList.add('active');
+      document.getElementById('level-2-intro').style.display = 'block';
+      document.getElementById('level-2-content').style.display = 'none';
+    } else if (level === 3) {
+      level3Screen.style.display = 'flex';
+      level3Screen.classList.remove('hidden');
+      level3Screen.classList.add('active');
+      // 清空密碼並聚焦
+      const inputs = document.querySelectorAll('.digit-input');
+      inputs.forEach(input => input.value = '');
+      setTimeout(() => inputs[0].focus(), 100);
+    }
   }, 500);
 }
 
@@ -156,12 +157,14 @@ function completeLevel(level) {
     level2Screen.classList.add('hidden');
   } else if (level === 3) {
     playerProgress.level3 = true;
-    // 預留給第三關的隱藏邏輯
+    level3Screen.classList.remove('active');
+    level3Screen.classList.add('hidden');
   }
   
   setTimeout(() => {
     if (level === 1) level1Screen.style.display = 'none';
     if (level === 2) level2Screen.style.display = 'none';
+    if (level === 3) level3Screen.style.display = 'none';
     
     mapScreen.style.display = 'flex';
     mapScreen.classList.remove('hidden');
