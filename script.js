@@ -324,9 +324,9 @@ checkLevel2Btn.addEventListener('click', () => {
   const isCorrect = currentOrder.every((val, index) => val === correctTimelineOrder[index]);
 
   if (isCorrect) {
-    alert("✨ 太棒了！我們的回憶完美無缺的串連在一起了！");
+    alert("✨ 太棒了！回憶完美無缺的串連在一起了！");
     completeLevel(2); // 回到地圖
   } else {
-    alert("❌ 順序好像有點不對？再回憶一下我們經歷的先後順序吧！");
+    alert("❌ 順序好像有點不對？再回憶一下經歷的先後順序吧！");
   }
 });
