@@ -123,8 +123,12 @@ function startLevel(level) {
       loadLevel1Quiz();
       // 這裡之後準備執行：loadLevel1Quiz();
     } else if (level === 2) {
-      // 顯示第二關邏輯...
-    }
+      level2Screen.style.display = 'flex';
+    level2Screen.classList.remove('hidden');
+    level2Screen.classList.add('active');
+    level2Intro.style.display = 'block';
+    level2Content.style.display = 'none';
+  }
   }, 500);
 }
 
