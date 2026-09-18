@@ -225,3 +225,104 @@ function checkAnswer(selectedIndex, correctIndex) {
     alert("❌ 哎呀，記憶有點模糊囉？再試一次吧！");
   }
 }
+
+// === 7. 第二關：拖曳時間線邏輯 ===
+const level2Screen = document.getElementById('level-2-screen');
+const level2Intro = document.getElementById('level-2-intro');
+const level2Content = document.getElementById('level-2-content');
+const startLevel2Btn = document.getElementById('start-level-2-btn');
+const checkLevel2Btn = document.getElementById('check-level-2-btn');
+
+// 設定正確的時間線順序 (請根據你的真實故事修改這四個 data-id 的順序)
+const correctTimelineOrder = ['item-hbd', 'item-hair', 'item-disney', 'item-japan'];
+
+// 點擊開始排列
+startLevel2Btn.addEventListener('click', () => {
+  level2Intro.style.display = 'none';
+  level2Content.style.display = 'flex';
+});
+
+// --- 拖曳引擎 (Drag and Drop API) ---
+let draggedItem = null;
+
+// 1. 監聽所有可拖曳圖片
+document.querySelectorAll('.draggable-item').forEach(item => {
+  item.addEventListener('dragstart', function() {
+    draggedItem = this;
+    setTimeout(() => this.style.opacity = '0.5', 0); // 拖曳時讓本體變半透明
+  });
+
+  item.addEventListener('dragend', function() {
+    setTimeout(() => {
+      this.style.opacity = '1';
+      draggedItem = null;
+    }, 0);
+  });
+});
+
+// 2. 監聽所有放置區 (包含上方時間線框框 與 下方碎片池)
+const dropZones = document.querySelectorAll('.timeline-slot, .draggables-pool');
+
+dropZones.forEach(zone => {
+  // 允許物件放進來
+  zone.addEventListener('dragover', (e) => {
+    e.preventDefault(); 
+    if (zone.classList.contains('timeline-slot')) {
+      zone.classList.add('drag-over');
+    }
+  });
+
+  zone.addEventListener('dragleave', () => {
+    zone.classList.remove('drag-over');
+  });
+
+  // 處理放開滑鼠時的動作
+  zone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    zone.classList.remove('drag-over');
+    
+    if (zone.classList.contains('timeline-slot')) {
+      // 如果框框裡面已經有東西了，把舊的東西踢回碎片池
+      const existingItem = zone.querySelector('.draggable-item');
+      if (existingItem) {
+        document.getElementById('draggables-pool').appendChild(existingItem);
+      }
+      zone.appendChild(draggedItem);
+    } else {
+      // 放回碎片池
+      zone.appendChild(draggedItem);
+    }
+  });
+});
+
+// 3. 驗證答案
+checkLevel2Btn.addEventListener('click', () => {
+  const slots = document.querySelectorAll('.timeline-slot');
+  let currentOrder = [];
+  let isFull = true;
+
+  slots.forEach(slot => {
+    const item = slot.querySelector('.draggable-item');
+    if (item) {
+      currentOrder.push(item.getAttribute('data-id'));
+    } else {
+      isFull = false;
+    }
+  });
+
+  // 檢查是否每個框框都放了圖片
+  if (!isFull) {
+    alert("📝 還有相片沒有排入時間線喔！");
+    return;
+  }
+
+  // 比對陣列內容
+  const isCorrect = currentOrder.every((val, index) => val === correctTimelineOrder[index]);
+
+  if (isCorrect) {
+    alert("✨ 太棒了！我們的回憶完美無缺的串連在一起了！");
+    completeLevel(2); // 回到地圖
+  } else {
+    alert("❌ 順序好像有點不對？再回憶一下我們經歷的先後順序吧！");
+  }
+});
