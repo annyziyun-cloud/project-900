@@ -143,6 +143,30 @@
       <button class="pixel-btn check-btn" id="check-level-2-btn">確認時間線</button>
     </div>
   </div>
+
+  <!-- 6. 第三關：時光保險箱 (Level 3 Screen) -->
+  <div id="level-3-screen" class="screen hidden">
+    <div class="lock-layout">
+      <h2 class="level-title">最終關：時光保險箱</h2>
+
+      <!-- 寶箱與提示區 -->
+      <div class="chest-container">
+        <!-- 提醒：你的附圖副檔名是 .jpg，請確認你實際放入 assets/ 的檔案名稱 -->
+        <img src="assets/box.jpg" alt="上鎖的寶箱" id="treasure-chest">
+        <button class="hint-btn" id="hint-btn">❓ 提示</button>
+      </div>
+
+      <!-- 密碼輸入區 (4 個獨立數字框) -->
+      <div class="password-container">
+        <input type="text" class="pixel-input digit-input" maxlength="1" pattern="\d*">
+        <input type="text" class="pixel-input digit-input" maxlength="1" pattern="\d*">
+        <input type="text" class="pixel-input digit-input" maxlength="1" pattern="\d*">
+        <input type="text" class="pixel-input digit-input" maxlength="1" pattern="\d*">
+      </div>
+
+      <button class="pixel-btn check-btn" id="unlock-btn">解鎖寶藏</button>
+    </div>
+  </div>
   
   <script src="script.js"></script>
 </body>
