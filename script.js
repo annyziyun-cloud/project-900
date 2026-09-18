@@ -165,18 +165,18 @@ function claimTreasure() {
 const level1QuizData = [
   {
     image: "assets/q1.png", 
-    options: ["選項 A 的文字", "選項 B 的文字", "選項 C 的文字"],
+    options: ["2024/3/30", "2024/4/4", "2024/4/11"],
     correctAnswerIndex: 0 // 正確答案是第幾個選項 (0 代表 A, 1 代表 B, 2 代表 C)
   },
   {
     image: "assets/q2.png",
-    options: ["選項 A 的文字", "選項 B 的文字", "選項 C 的文字"],
+    options: ["寶寶", "老婆", "小香豬"],
     correctAnswerIndex: 1 
   },
   {
     image: "assets/q3.png",
-    options: ["選項 A 的文字", "選項 B 的文字", "選項 C 的文字"],
-    correctAnswerIndex: 2 
+    options: ["慶祝老婆生日", "慶祝500天", "慶祝2周年"],
+    correctAnswerIndex: 1 
   }
 ];
 
