@@ -355,7 +355,7 @@ const digitInputs = document.querySelectorAll('.digit-input');
 
 // 提示按鈕邏輯
 hintBtn.addEventListener('click', () => {
-  alert("🧚‍♀️ 小精靈芸芸提示：密碼是我們故事開始的那一天唷！");
+  alert("🧚‍♀️ 小精靈芸芸提示：密碼是故事開始的那一天唷！");
 });
 
 // 輸入框自動跳格機制
