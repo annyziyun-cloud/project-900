@@ -184,21 +184,23 @@
     </div>
   </div>
 
-  <!-- ========================================= -->
+ <!-- ========================================= -->
   <!-- 7. 最終寶藏影片畫面 (Treasure Screen)      -->
   <!-- ========================================= -->
   <div id="treasure-screen" class="screen hidden">
     <div class="video-container">
       <h2 class="level-title" style="font-size: 2rem; margin-bottom: 15px;">900 天祕寶</h2>
       
-      <!-- 最終寶藏影片 -->
-      <!-- 請確認你有將影片命名為 treasure.mp4 並放在 assets 資料夾中 -->
-      <video id="treasure-video" controls playsinline>
-        <source src="assets/treasure.mp4" type="video/mp4">
-        您的瀏覽器不支援影片播放。
-      </video>
+      <p id="treasure-text" style="font-size: 1.2rem; line-height: 1.8; color: #4a4a4a; margin-bottom: 20px; text-align: center;">
+        勇者大人，恭喜你解開了所有謎題！<br>點擊下方按鈕，前往領取專屬於你的驚喜吧！
+      </p>
+
+      <!-- 雲端影片連結按鈕 (請將 href 裡面的網址換成你的 Google Drive 或 YouTube 連結) -->
+      <a href="https://drive.google.com/file/d/13CfRNXDiJgFN5zlfYXjENGjB3wFwoGOs/view?usp=drive_link" target="_blank" class="pixel-btn" id="cloud-video-btn" style="text-decoration: none; display: inline-block; margin-bottom: 25px;">
+        點選前往
+      </a>
       
-      <button class="pixel-btn" id="back-to-map-btn" style="margin-top: 25px;">返回地圖</button>
+      <button class="pixel-btn" id="back-to-map-btn">返回地圖</button>
     </div>
   </div>
   
