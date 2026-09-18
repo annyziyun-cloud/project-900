@@ -92,6 +92,57 @@
       </div>
     </div>
   </div>
+
+<!-- 5. 第二關：時間線拖曳畫面 (Level 2 Screen) -->
+  <div id="level-2-screen" class="screen hidden">
+    
+    <!-- 關卡前置說明 -->
+    <div id="level-2-intro" class="dialog-box intro-box">
+      <h3 class="dialog-name">小精靈芸芸</h3>
+      <p id="intro-text-2">歡迎來到第二關！這裡散落了一路走來的回憶碎片。<br><br>請按住圖片並拖曳，按照「時間發生的先後順序」，把它們排入時間線中吧！</p>
+      <button class="pixel-btn next-btn" id="start-level-2-btn">開始排列 ▶</button>
+    </div>
+
+    <!-- 拖曳遊戲版面 -->
+    <div id="level-2-content" class="drag-layout" style="display: none;">
+      <h2 class="level-title">第二關：時光軌跡</h2>
+      
+      <!-- 時間線 (放置區 Drop Zones) -->
+      <div class="timeline-container">
+        <div class="timeline-slot" data-slot="1"></div>
+        <div class="timeline-arrow">➔</div>
+        <div class="timeline-slot" data-slot="2"></div>
+        <div class="timeline-arrow">➔</div>
+        <div class="timeline-slot" data-slot="3"></div>
+        <div class="timeline-arrow">➔</div>
+        <div class="timeline-slot" data-slot="4"></div>
+      </div>
+
+      <!-- 碎片池 (可拖曳圖片區) -->
+      <!-- 提示：可以把 src 換成你們去東京迪士尼海洋、或是做戒指的去背合照！ -->
+      <div class="draggables-pool" id="draggables-pool">
+        <!-- 圖片 1：設定 data-id 作為驗證答案的依據 -->
+        <div class="draggable-item" draggable="true" data-id="item-hbd">
+          <img src="assets/item-hbd.png" alt="老公生日">
+        </div>
+        <!-- 圖片 2 -->
+        <div class="draggable-item" draggable="true" data-id="item-hair">
+          <img src="assets/item-hair.png" alt="一起去美髮">
+        </div>
+        <!-- 圖片 3 -->
+        <div class="draggable-item" draggable="true" data-id="item-disney">
+          <img src="assets/item-disney.png" alt="迪士尼">
+        </div>
+        <!-- 圖片 4 -->
+        <div class="draggable-item" draggable="true" data-id="item-japan">
+          <img src="assets/item-japan.png" alt="日本旅遊">
+        </div>
+      </div>
+
+      <!-- 確認答案按鈕 -->
+      <button class="pixel-btn check-btn" id="check-level-2-btn">確認時間線</button>
+    </div>
+  </div>
   
   <script src="script.js"></script>
 </body>
