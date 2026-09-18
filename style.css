@@ -328,3 +328,95 @@ body, html {
   padding: 16px 24px;
   text-align: left; /* 讓選項文字靠左對齊 */
 }
+
+/* =========================================
+   第二關：時間線拖曳畫面排版
+========================================= */
+.drag-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
+  max-width: 1000px;
+  gap: 30px;
+}
+
+/* 時間線容器 */
+.timeline-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.75);
+  padding: 30px;
+  border-radius: 16px;
+  border: 4px dashed #faa3b3;
+  width: 100%;
+}
+
+/* 放置框 (Drop Slot) */
+.timeline-slot {
+  width: 130px;
+  height: 130px;
+  background-color: rgba(255, 182, 193, 0.2);
+  border: 4px solid #f8c3cd;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+/* 當物件拖曳到框框上方時的視覺回饋 */
+.timeline-slot.drag-over {
+  background-color: rgba(255, 182, 193, 0.6);
+  transform: scale(1.05);
+  border-color: #d87093;
+}
+
+.timeline-arrow {
+  font-size: 2rem;
+  color: #faa3b3;
+}
+
+/* 底部碎片池 */
+.draggables-pool {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 160px;
+  padding: 20px;
+  width: 100%;
+  border: 4px solid #fff;
+  border-radius: 16px;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* 可拖曳的圖片容器 */
+.draggable-item {
+  width: 110px;
+  height: 110px;
+  cursor: grab;
+  z-index: 10;
+  transition: transform 0.1s;
+}
+
+.draggable-item:active {
+  cursor: grabbing; /* 點擊時變成抓取手勢 */
+  transform: scale(0.95);
+}
+
+.draggable-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
+  pointer-events: none; /* 關鍵：防止圖片本身干擾拖曳事件 */
+}
+
+.check-btn {
+  margin-top: 20px;
+  font-size: 1.3rem;
+}
