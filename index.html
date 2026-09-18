@@ -167,6 +167,40 @@
       <button class="pixel-btn check-btn" id="unlock-btn">解鎖寶藏</button>
     </div>
   </div>
+
+  <!-- ========================================= -->
+  <!-- 隱藏功能：設定彈窗 (Settings Modal)       -->
+  <!-- ========================================= -->
+  <div id="settings-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2 class="level-title" style="font-size: 2rem; margin-bottom: 20px;">Settings</h2>
+      
+      <div class="volume-control">
+        <label for="bgm-volume">BGM 音量：</label>
+        <input type="range" id="bgm-volume" min="0" max="1" step="0.1" value="1">
+      </div>
+      
+      <button class="pixel-btn" id="close-settings-btn">確認</button>
+    </div>
+  </div>
+
+  <!-- ========================================= -->
+  <!-- 7. 最終寶藏影片畫面 (Treasure Screen)      -->
+  <!-- ========================================= -->
+  <div id="treasure-screen" class="screen hidden">
+    <div class="video-container">
+      <h2 class="level-title" style="font-size: 2rem; margin-bottom: 15px;">900 天祕寶</h2>
+      
+      <!-- 最終寶藏影片 -->
+      <!-- 請確認你有將影片命名為 treasure.mp4 並放在 assets 資料夾中 -->
+      <video id="treasure-video" controls playsinline>
+        <source src="assets/treasure.mp4" type="video/mp4">
+        您的瀏覽器不支援影片播放。
+      </video>
+      
+      <button class="pixel-btn" id="back-to-map-btn" style="margin-top: 25px;">返回地圖</button>
+    </div>
+  </div>
   
   <script src="script.js"></script>
 </body>
